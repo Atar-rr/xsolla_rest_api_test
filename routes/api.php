@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group(['prefix' => 'v1/'], function (){
+    Route::apiResource('product', ProductsController::class);
 
-#TODO удалить
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-
-Route::apiResource('product', ProductsController::class);
-//Route::get('product/{product:sku}', [ProductsController::class, 'show']);
-//Route::get('product/{product}', [ProductsController::class, 'show']);
+});

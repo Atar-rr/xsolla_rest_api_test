@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->string('sku', 30)->unique()->nullable(false);
             $table->string('name', 100)->nullable(false);
             $table->float('price')->nullable(false);
-            $table->softDeletes();
             $table->timestamps();
         });
     }

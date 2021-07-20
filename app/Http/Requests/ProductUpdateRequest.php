@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\DTO\Request\Product\ProductCreateDTO;
+use App\DTO\Request\Product\ProductUpdateDTO;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductCreateRequest extends FormRequest
+class ProductUpdateRequest extends FormRequest
 {
     protected const
         FIELD_SKU = 'sku',
@@ -31,19 +31,19 @@ class ProductCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            self::FIELD_SKU => 'bail|required|string|min:6|max:30',
-            self::FIELD_NAME => 'bail|required|string|min:2|max:100',
-            self::FIELD_PRICE => 'bail|required|numeric',
-            self::FIELD_PRODUCT_TYPE_ID => 'bail|required|numeric|integer'
+            self::FIELD_SKU => 'bail|string|min:6|max:30',
+            self::FIELD_NAME => 'bail|string|min:2|max:100',
+            self::FIELD_PRICE => 'bail|numeric',
+            self::FIELD_PRODUCT_TYPE_ID => 'bail|numeric|integer'
         ];
     }
 
     /**
-     * @return ProductCreateDTO
+     * @return ProductUpdateDTO
      */
-    public function getDto(): ProductCreateDTO
+    public function getDto(): ProductUpdateDTO
     {
-        return new ProductCreateDTO(
+        return new ProductUpdateDTO(
             $this->get(self::FIELD_SKU),
             $this->get(self::FIELD_NAME),
             $this->get(self::FIELD_PRICE),

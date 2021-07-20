@@ -32,6 +32,10 @@ migrate-rollback: ## откатить последнею миграцию в к�
 db-seed: ## Наполнить бд тестовыми данными
 	docker-compose exec php-fpm php artisan db:seed --class=ProductTypeSeeder
 
+
+env: ## копируем env.example
+	cp .env.example .env
+
 help: ## Парсит сам себя и выводит форматированный список всех комманд
 	@grep -E '(^[a-z].*[^:]\s*##)|(^##)' Makefile | \
 	perl -pe "s/^##\s*//" | \

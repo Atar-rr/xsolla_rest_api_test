@@ -12,4 +12,13 @@ use Illuminate\Database\Eloquent\Model;
 class ProductTypes extends Model
 {
     use HasFactory;
+
+    public const
+        ID = 'id',
+        NAME = 'name';
+
+    public function checkExistProductTypeById(int $id): bool
+    {
+        return $this->where('id', $id)->exists();
+    }
 }
