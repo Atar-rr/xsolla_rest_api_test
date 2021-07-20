@@ -4,7 +4,7 @@
 1. git clone https://github.com/Atar-rr/xsolla_rest_api_test.git
 2. cd xsolla_rest_api_test
 3. Выполняем make env 
-4. Выполняем make init 
+4. Выполняем make init
 5. Выполняем make migrate 
 6. Выполняем make db-seed (наполняется таблица с типами товаров)
 7. Api будет доступно по адресу http://localhost:8080/api/v1
