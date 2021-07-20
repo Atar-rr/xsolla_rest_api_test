@@ -52,6 +52,6 @@ class Handler extends ExceptionHandler
             return response()->json(['message' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
 
-        return response()->json(['message' =>  $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        return $this->prepareJsonResponse($request, $e);
     }
 }
